@@ -5,7 +5,13 @@ module.exports.formatDistanceRows = (data) => {
     const { distance, duration, duration_in_traffic, status } = elements && elements.length ? elements[0] : {};
 
     return {
-        origin_addresses, destination_addresses,
-        distance, duration, duration_in_traffic, status, upperLevelStatus
+        origin_address: origin_addresses.join(''),
+        destination_address: destination_addresses.join(''),
+        distance: distance.text,
+        duration: duration.text,
+        duration_in_traffic: duration_in_traffic.text,
+        status,
+        upperLevelStatus,
+        timestamp: new Date().toLocaleString()
     };
 };
