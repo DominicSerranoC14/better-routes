@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/pm2/bin/pm2 start index.js",
+    "start": "pm2 start index.js -n better-routes",
     "start-dev": "node_modules/nodemon/bin/nodemon.js index.js",
-    "list": "node_modules/pm2/bin/pm2 ls",
-    "logs": "node_modules/pm2/bin/pm2 logs index",
-    "stop": "node_modules/pm2/bin/pm2 stop index",
+    "list": "pm2 ls",
+    "logs": "pm2 logs index",
+    "stop": "pm2 stop index",
     "migrate": "node database/migrate.js"
   },
   "keywords": [],
