@@ -8,11 +8,13 @@ const timeSchedule = '0-59/2 * * * * *';
 const startImmediately = false;
 
 const action = async () => {
-    const details = await calculateDistance({ origins: WORK_ADDRESS, destinations: HOME_ADDRESS });
+    // const details = await calculateDistance({ origins: WORK_ADDRESS, destinations: HOME_ADDRESS });
+
+    const details = { what: 'what' };
 
     appendResults(details);
 
     console.log(`${new Date().toLocaleTimeString()} Logging home distance details.`);
 };
 
-module.exports.test = cron.schedule(timeSchedule, action);
+module.exports.test = cron.schedule(timeSchedule, action, startImmediately);

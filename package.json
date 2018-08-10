@@ -7,8 +7,9 @@
     "start": "pm2 start index.js -n better-routes",
     "start-dev": "node_modules/nodemon/bin/nodemon.js index.js",
     "list": "pm2 ls",
-    "logs": "pm2 logs index",
-    "stop": "pm2 stop index",
+    "logs": "pm2 logs better-routes",
+    "stop": "pm2 stop better-routes",
+    "test-job": "node test.js",
     "migrate": "node database/migrate.js"
   },
   "keywords": [],
