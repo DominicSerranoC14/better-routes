@@ -8,12 +8,16 @@ const timeSchedule = '0,15,30,45 15-18 * * 1-5';
 const startImmediately = false;
 
 const action = async () => {
-    // Fetch duration details from Google API
-    const details = await calculateDistance({ origins: WORK_ADDRESS, destinations: HOME_ADDRESS });
+    try {
+        // Fetch duration details from Google API
+        const details = await calculateDistance({ origins: WORK_ADDRESS, destinations: HOME_ADDRESS });
 
-    appendResults(details);
+        appendResults(details);
 
-    console.log(`${new Date().toLocaleTimeString()} Logging work to home distance details.`);
+        console.log(`${new Date().toLocaleTimeString()} Logging work to home distance details.`);
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 module.exports.distanceHome = cron.schedule(timeSchedule, action, startImmediately);
