@@ -4,7 +4,7 @@ const { HOME_ADDRESS, WORK_ADDRESS } = require('../constants/distance');
 const { logError } = require('../helpers/error');
 const cron = require('node-cron');
 
-const timeSchedule = '0-59/2 * * * * *';
+const timeSchedule = '0-59/5 * * * * *';
 
 const startImmediately = false;
 
