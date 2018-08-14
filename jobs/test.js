@@ -1,5 +1,6 @@
 const { calculateDistance } = require('../services/distance');
 const { appendResults } = require('../services/results');
+const { postDuration } = require('../services/firebase');
 const { HOME_ADDRESS, WORK_ADDRESS } = require('../constants/distance');
 const cron = require('node-cron');
 
@@ -8,11 +9,11 @@ const timeSchedule = '0-59/2 * * * * *';
 const startImmediately = false;
 
 const action = async () => {
-    // const details = await calculateDistance({ origins: WORK_ADDRESS, destinations: HOME_ADDRESS });
+    const details = await calculateDistance({ origins: WORK_ADDRESS, destinations: HOME_ADDRESS });
 
-    const details = { what: 'what' };
+    // const details = { what: 'what' };
 
-    appendResults(details);
+    await postDuration(details);
 
     console.log(`${new Date().toLocaleTimeString()} Logging home distance details.`);
 };

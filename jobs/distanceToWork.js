@@ -1,6 +1,6 @@
 const { calculateDistance } = require('../services/distance');
 const { HOME_ADDRESS, WORK_ADDRESS } = require('../constants/distance');
-const { appendResults } = require('../services/results');
+const { postDuration } = require('../services/firebase');
 const cron = require('node-cron');
 
 const timeSchedule = '0,15,30,45 6-9 * * 1-5';
@@ -12,7 +12,7 @@ const action = async () => {
         // Fetch duration details from Google API
         const details = await calculateDistance({ origins: HOME_ADDRESS, destinations: WORK_ADDRESS });
 
-        appendResults(details);
+        postDuration(details);
 
         console.log(`${new Date().toLocaleTimeString()}: Logging home to work distance details.`);
     } catch (error) {
