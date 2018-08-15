@@ -10,6 +10,7 @@
     "logs": "pm2 logs better-routes",
     "stop": "pm2 stop better-routes",
     "test-job": "node test.js",
+    "test-process": "pm2 start test.js -n better-routes-test",
     "migrate": "node database/migrate.js"
   },
   "keywords": [],
