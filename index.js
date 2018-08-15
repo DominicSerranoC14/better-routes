@@ -1,6 +1,7 @@
+require('dotenv').config();
+
 const { distanceHome } = require('./jobs/distanceHome');
 const { distanceToWork } = require('./jobs/distanceToWork');
-require('dotenv').config();
 
 distanceToWork.start();
 distanceHome.start();

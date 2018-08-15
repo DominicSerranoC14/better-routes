@@ -12,7 +12,7 @@ const action = async () => {
     // Fetch duration details from Google API
     const details = await calculateDistance({ origins: WORK_ADDRESS, destinations: HOME_ADDRESS });
 
-    await postDuration(details);
+    postDuration(details);
 };
 
 module.exports.distanceHome = cron.schedule(timeSchedule, action, startImmediately);
