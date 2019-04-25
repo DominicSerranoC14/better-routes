@@ -1,7 +1,8 @@
 const { appendFile } = require('fs');
+const { getTodayFormatted } = require('../helpers/date');
 
 module.exports.appendResults = data => {
-    const fileName = `./results/${new Date().toLocaleDateString()}.json`;
+    const fileName = `./results/${getTodayFormatted()}.json`;
 
     appendFile(fileName, JSON.stringify(data, null, 4) + ',\n', (error) => {
         if (error) {

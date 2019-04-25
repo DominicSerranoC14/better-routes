@@ -1,22 +1,10 @@
-const { calculateDistance } = require('./services/distance');
-const { appendResults } = require('./services/results');
-const { HOME_ADDRESS, WORK_ADDRESS } = require('./constants/distance');
-const { distanceHome, distanceToWork } = require('./jobs/distanceHome');
-require('dotenv').config();
+const path = require('path'); 
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
-// calculateDistance({
-//     origins: HOME_ADDRESS, destinations: WORK_ADDRESS
-// }).then(res => {
-//     appendResults(res);
-// });
+const { distanceHome } = require('./jobs/distanceHome');
+const { distanceToWork } = require('./jobs/distanceToWork');
 
-// calculateDistance({
-//     origins: WORK_ADDRESS, destinations: HOME_ADDRESS
-// }).then(res => {
-//     appendResults(res);
-// });
-
-// distanceToWork.start();
+distanceToWork.start();
 distanceHome.start();
 
 // Throw any uncaught exceptions into the error log for debugging

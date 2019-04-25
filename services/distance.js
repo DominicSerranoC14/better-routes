@@ -1,10 +1,13 @@
 const axios = require('axios');
 const { formatDistanceRows } = require('../helpers/distance');
+const { logError } = require('../helpers/error');
 
 module.exports.calculateDistance = async ({ origins, destinations }) => {
     const { API_KEY, DISTANCE_URL } = process.env;
 
     try {
+        console.log(new Date().toLocaleTimeString(), ': Attempting to calculate distance...');
+
         const { data } = await axios.get(`${DISTANCE_URL}`, {
             params: {
                 origins,
@@ -15,16 +18,10 @@ module.exports.calculateDistance = async ({ origins, destinations }) => {
             }
         });
 
+        console.log(new Date().toLocaleTimeString(), ': Distance has been calculated.');
+
         return formatDistanceRows(data);
     } catch (error) {
-        const { config, response } = error;
-
-        if (!config || !response) {
-            return console.error(error);
-        }
-
-        console.error(response.status, response.statusText);
-        console.error(config.url);
-        console.error(config.params);
+        logError(error);
     }
 };

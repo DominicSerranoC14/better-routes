@@ -4,20 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/pm2/bin/pm2 start index.js",
-    "start-dev": "node_modules/nodemon/bin/nodemon.js index.js",
-    "list": "node_modules/pm2/bin/pm2 ls",
-    "logs": "node_modules/pm2/bin/pm2 logs index",
-    "stop": "node_modules/pm2/bin/pm2 stop index"
+    "pm2:start": "pm2 start index.js -n better-routes",
+    "dev:start": "node_modules/nodemon/bin/nodemon.js index.js",
+    "pm2:list": "pm2 ls",
+    "pm2:logs": "pm2 logs better-routes",
+    "pm2:stop": "pm2 stop better-routes",
+    "dev:test-job": "node test.js",
+    "dev:test-process": "pm2 start test.js -n better-routes-test",
+    "dev:migrate": "node database/migrate.js",
+    "pm2:monit": "node_modules/pm2/bin/pm2 monit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
     "dotenv": "^6.0.0",
     "node-cron": "^1.2.1",
     "nodemon": "^1.18.3",
-    "pm2": "^3.0.3"
+    "pm2": "^3.0.3",
+    "sqlite": "^2.9.2"
+  },
+  "devDependencies": {
+    "lodash": ">=4.17.11"
   }
 }
