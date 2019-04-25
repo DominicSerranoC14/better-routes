@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js -n better-routes",
-    "start-dev": "node_modules/nodemon/bin/nodemon.js index.js",
-    "list": "pm2 ls",
-    "logs": "pm2 logs better-routes",
-    "stop": "pm2 stop better-routes",
-    "test-job": "node test.js",
-    "test-process": "pm2 start test.js -n better-routes-test",
-    "migrate": "node database/migrate.js"
+    "pm2:start": "pm2 start index.js -n better-routes",
+    "dev:start": "node_modules/nodemon/bin/nodemon.js index.js",
+    "pm2:list": "pm2 ls",
+    "pm2:logs": "pm2 logs better-routes",
+    "pm2:stop": "pm2 stop better-routes",
+    "dev:test-job": "node test.js",
+    "dev:test-process": "pm2 start test.js -n better-routes-test",
+    "dev:migrate": "node database/migrate.js",
+    "pm2:monit": "node_modules/pm2/bin/pm2 monit"
   },
   "keywords": [],
   "author": "",
