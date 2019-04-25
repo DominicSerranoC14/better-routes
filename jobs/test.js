@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { calculateDistance } = require('../services/distance');
 const { postDuration } = require('../services/firebase');
 const { HOME_ADDRESS, WORK_ADDRESS } = require('../constants/distance');

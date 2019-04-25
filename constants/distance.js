@@ -1,7 +1,8 @@
-const HOME_ADDRESS = '402+Southwood+Park+Place+Nashville+TN';
-const WORK_ADDRESS = '1310+Clinton+Street+Nashville+TN';
+const { HOME_ADDRESS, WORK_ADDRESS } = process.env;
+
+const formatAddressString = addressString => addressString.replace(/ /g, "+");
 
 module.exports = {
-    HOME_ADDRESS,
-    WORK_ADDRESS
+    HOME_ADDRESS: formatAddressString(HOME_ADDRESS),
+    WORK_ADDRESS: formatAddressString(WORK_ADDRESS)
 };
